@@ -5,4 +5,4 @@ build:
   command: npm ci && npm run build
   publish: ./build
 start:
-  command: npm start
+  command: npm run start
