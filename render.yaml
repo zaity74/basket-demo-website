@@ -1,4 +1,4 @@
-name: basketball-demo-website
+name: basketball-demo1-website
 env:
   NODE_ENV: production
 build:
