@@ -1,8 +1,8 @@
-name: basketball-demo-website
+name: my-node-app
 env:
   NODE_ENV: production
 build:
-  command: /usr/local/bin/npm ci && /usr/local/bin/npm run build
+  command: npm ci && npm run build
   publish: ./build
 start:
-  command: npm run start
+  command: node dist/server.js   # Use the correct command to run the transpiled server.js
