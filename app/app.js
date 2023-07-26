@@ -28,7 +28,7 @@ dbConnect();
 
 // Add the CORS middleware with specific options
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Remplacez ceci par le domaine de votre frontend Netlify
+    res.setHeader('Access-Control-Allow-Origin', 'https://main--basketball-demo.netlify.app/'); // Remplacez ceci par le domaine de votre frontend Netlify
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
