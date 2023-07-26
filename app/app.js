@@ -42,6 +42,11 @@ app.use('/api/v1/products/', productRouter)
 app.use('/api/v1/users/', userRouter);
 
 
+// Add the CORS middleware with specific options
+app.use(cors({
+    origin: 'https://basketball-demo.netlify.app' // Remplacez ceci par le domaine de votre frontend Netlify
+  }));
+  
 // MIDDLEWARE
 app.use(notFound)
 app.use(globalErrHandler)
