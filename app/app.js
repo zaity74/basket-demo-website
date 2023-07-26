@@ -18,7 +18,6 @@ import { globalErrHandler, notFound } from '../middleware/globaleErrHandler.js';
 
 const app = express(); // Invoke express as a function to create the app
 app.use(express.json());
-app.use(cors({ origin: 'https://basketball-demo.netlify.app' }));
 
 
 // DOTENV, TO USE ENV VARIABLE IN ALL APPLICATIONS
