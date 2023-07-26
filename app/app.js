@@ -26,6 +26,15 @@ dotenv.config();
 // db connect 
 dbConnect();
 
+// Add the CORS middleware with specific options
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Remplacez ceci par le domaine de votre frontend Netlify
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
+  
+
 // IMPORT ROUTES 
 /* USER ROUTES */
 app.use('/api/v1/games/', gamesRouter)
@@ -41,11 +50,6 @@ app.use('/api/v1/cart/', cartRouter)
 app.use('/api/v1/products/', productRouter)
 app.use('/api/v1/users/', userRouter);
 
-
-// Add the CORS middleware with specific options
-app.use(cors({
-    origin: 'https://basketball-demo.netlify.app' // Remplacez ceci par le domaine de votre frontend Netlify
-  }));
   
 // MIDDLEWARE
 app.use(notFound)
