@@ -12,7 +12,8 @@ export const globalErrHandler = (err, req, res, next) => {
   };
 
 // In case the link enter in the url is not found
-export const notFound = (err, req, res, next) => {
-    const error = new Error(`Route ${req.originalUrl} not found`)
-    next(error)
-}
+export const notFound = (req, res, next) => {
+    const error = new Error(`Route ${req.originalUrl} not found`);
+    error.status = 404;  // Set a 404 status on the error
+    next(error);  // Pass the error to the next middleware
+};

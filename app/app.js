@@ -34,6 +34,10 @@ app.use((req, res, next) => {
   next();
 });
 
+// MIDDLEWARE
+app.use(notFound)
+app.use(globalErrHandler)
+
 
 // IMPORT ROUTES 
 /* USER ROUTES */
@@ -51,8 +55,5 @@ app.use('/api/v1/products/', productRouter)
 app.use('/api/v1/users/', userRouter);
 
   
-// MIDDLEWARE
-app.use(notFound)
-app.use(globalErrHandler)
 
 export default app;
