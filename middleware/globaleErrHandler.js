@@ -13,6 +13,6 @@ export const globalErrHandler = (err, req, res, next) => {
 
 // In case the link enter in the url is not found
 export const notFound = (err, req, res, next) => {
-    const err = new Error(`Route ${req.originalUrl} not found`)
-    next(err)
+    const error = new Error(`Route ${req.originalUrl} not found`)
+    next(error)
 }
