@@ -46,13 +46,14 @@ export const userLogin = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
   
     const userFound = await User.findOne({ email: email });
+    console.log("🚀 ~ file: userControllers.js:49 ~ userLogin ~ userFound:", userFound)
   
     if (userFound && await bcrypt.compare(password, userFound?.password)) {
         return res.status(200).json({
             status: 'success',
             message: 'User login successfully',
             userFound,
-            token: generateToken(userFound?._id)
+            token: await generateToken(userFound?._id)
         })
     }else{
         throw new Error('invalid login credentials')

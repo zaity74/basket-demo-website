@@ -18,6 +18,7 @@ import { globalErrHandler, notFound } from '../middleware/globaleErrHandler.js';
 
 const app = express(); // Invoke express as a function to create the app
 app.use(express.json());
+app.use(cors())
 
 
 // DOTENV, TO USE ENV VARIABLE IN ALL APPLICATIONS
@@ -34,9 +35,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// MIDDLEWARE
-app.use(notFound)
-app.use(globalErrHandler)
 
 
 // IMPORT ROUTES 
@@ -54,6 +52,9 @@ app.use('/api/v1/cart/', cartRouter)
 app.use('/api/v1/products/', productRouter)
 app.use('/api/v1/users/', userRouter);
 
-  
+
+// MIDDLEWARE
+app.use(notFound)
+app.use(globalErrHandler)
 
 export default app;
